@@ -1,0 +1,42 @@
+{
+  "name": "qck",
+  "version": "1.0.0",
+  "description": "boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "clean": "bash -c 'rm -rf static && mkdir static'",
+    "prestart": "npm run clean && npm run styles",
+    "start": "npm run watch & npm run serve",
+    "watch": "npm run watch-bundle & npm run watch-test & npm run watch-styles",
+    "styles": "node-sass src/scss/main.scss -o static",
+    "watch-styles": "npm run styles -- --watch",
+    "bundle": "browserify index.js -s qck -o static/bundle.js",
+    "watch-bundle": "watchify -v -s qck index.js  -o static/bundle.js",
+    "watch-test": "onchange -vi 'test' 'src' -- npm test",
+    "serve": "ecstatic . -p 8000",
+    "test": "node test/index.js | tap-spec"
+  },
+  "author": "Johannes Troeger <johannes.troeger@gmail.com> (http://johannestroeger.de/)",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "ecstatic": "^1.4.1",
+    "node-sass": "^3.8.0",
+    "onchange": "^2.2.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.5.1",
+    "watchify": "^3.7.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johannestroeger/qck.git"
+  },
+  "bugs": {
+    "url": "https://github.com/johannestroeger/qck/issues"
+  },
+  "homepage": "https://github.com/johannestroeger/qck#readme"
+}
