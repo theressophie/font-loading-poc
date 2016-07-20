@@ -30,7 +30,9 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "fontfaceobserver": "^2.0.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/johannestroeger/qck.git"
