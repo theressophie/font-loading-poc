@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "clean": "bash -c 'rm -rf static && mkdir static'",
-    "prestart": "npm run clean && npm run styles",
+    "prestart": "npm run clean && npm run styles && npm run copy",
     "start": "npm run watch & npm run serve",
     "watch": "npm run watch-bundle & npm run watch-test & npm run watch-styles",
     "styles": "node-sass src/scss/main.scss -o static",
     "watch-styles": "npm run styles -- --watch",
+    "copy": "bash -c 'cp -r src/fonts static'",
     "bundle": "browserify index.js -s qck -o static/bundle.js",
     "watch-bundle": "watchify -v -s qck index.js  -o static/bundle.js",
     "watch-test": "onchange -vi 'test' 'src' -- npm test",
