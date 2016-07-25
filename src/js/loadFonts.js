@@ -12,7 +12,6 @@ module.exports = () => {
 
         Promise.all([fontA.load(), fontB.load(), fontC.load()]).then(function () {
             document.documentElement.className += " fonts-stage-2";
-
         });
     });
 }
